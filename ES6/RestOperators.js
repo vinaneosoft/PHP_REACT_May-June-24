@@ -12,6 +12,9 @@ let arr1=["pooja","shanti"]
 let arr2=["krupa","kiran","pooja"]
 let arr3=[...arr1,...arr2,"pritam","somya"]
 
+let arr4=[...arr1]; // difft array
+let arr5=arr1; // same array
+
 let studObj={
     id:56,
     sname:"kirti",
