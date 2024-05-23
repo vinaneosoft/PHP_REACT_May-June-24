@@ -27,3 +27,20 @@ console.log(salaries);
 console.log("----------");
 salaries.map(salary=>salary+5000).forEach(salary=>console.log(salary))
 // reduce
+
+let ages=[3,4,2,7,6,8,3,4];
+const sum=ages.reduce((acc,ele)=>acc+ele)
+/* initial values
+acc=3, ele=4, 3+4=7
+acc=7, ele=2 , 7+2=9
+acc=9, ele=7 9+7=15
+.....
+*/
+const sum2=ages.reduce((acc,ele)=>acc+ele, 0)
+/* initial values
+acc=0, ele=3, 0+3
+acc=3, ele=4, 3+4=7
+acc=7, ele=2 , 7+2=9
+acc=9, ele=7 9+7=15
+.....
+*/
