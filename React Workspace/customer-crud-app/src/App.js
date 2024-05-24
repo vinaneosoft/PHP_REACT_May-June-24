@@ -1,10 +1,12 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
   return (
-    
-   <h1>First React Project</h1>
+    <React.Fragment>
+      <h1 id="MainHeading" className="heading myheading">First React Project</h1>
+      <h2 className="heading">CUSTOMER CRUD</h2>
+    </React.Fragment>
   );
 }
 
