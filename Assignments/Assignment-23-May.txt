@@ -10,3 +10,6 @@ create Employee array of 6 employee objects
 3. Find all Employees whose salary > 78000  : filter
 4. Increment salary of every employee by 5000 : map
 5. Display sum of salary of all employees : reduce
+
+
+Implement more examples on spread/rest operators

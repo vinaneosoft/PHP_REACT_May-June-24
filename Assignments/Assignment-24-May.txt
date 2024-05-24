@@ -1,0 +1,3 @@
+Create Footer Component and add it in App
+
+Create Navbar Component Design it will bootstrap and add it in Header component
