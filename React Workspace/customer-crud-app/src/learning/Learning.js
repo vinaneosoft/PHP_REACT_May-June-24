@@ -95,6 +95,7 @@ export function Learning(){
         <button className="btn btn-info" onClick={getMessage}>MESSAGE</button>
        <b>{message}</b>
        <button className="btn btn-warning" onClick={()=>test(45)}>MESSAGE</button>
+       { /* on button click we will apply style to any element*/}
      </div>
     );
 }
