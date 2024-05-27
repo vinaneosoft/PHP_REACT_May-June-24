@@ -26,6 +26,12 @@ export function Learning(){
         height:300,
         width:400  
     }
+    const imageObj4={
+        imgPath:require('../Resources/kadhaipaneer.jpg'),
+        message:"Paneer Kadhai Dish",
+        height:300,
+        width:400  
+    }
     return (
     <div className="container">
         <h4>{subHeading}</h4> {/*Data binding*/}
@@ -38,6 +44,10 @@ export function Learning(){
             <figcaption>{imageObj2.message}</figcaption>
             <img src={imageObj3.imgPath} alt={imageObj3.message} height={imageObj3.height} width={imageObj3.width}></img>
             <figcaption>{imageObj3.message}</figcaption>
+            <img src={require("../Resources/kadhaipaneer.jpg")} alt={imageObj3.message} height={imageObj3.height} width={imageObj3.width}></img>
+            <figcaption>{imageObj3.message}</figcaption>
+            <img src={imageObj4.imgPath} alt={imageObj4.message} height={imageObj4.height} width={imageObj4.width}></img>
+            <figcaption>{imageObj4.message}</figcaption>
         </figure>
      </div>
     );
