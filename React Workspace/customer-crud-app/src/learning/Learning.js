@@ -1,5 +1,5 @@
 // u can declare javascript variables here : var, let, const
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import  dish  from "../Resources/kadhaipaneer.jpg";
 import  './Learning.css';
 
@@ -49,15 +49,25 @@ export function Learning(){
 
   /* if u want to make a state change in variable we have to use hook in react
   useState */
-   let [message, changeState]=useState("");
+   const [message, changeState]=useState("");
 
     function getMessage(){
-        console.log("in function...");
-        message="Welcome to my online Kitchen" // this wont work in react
+        //console.log("in function...");
+       // message="Welcome to my online Kitchen" // this wont work in react
         changeState("Welcome to my online Kitchen");
        // return message;
     }
- 
+
+    // after rendering done : we want to do some extra operations : back end connectivity
+    // use of those variable which to be used after component rendering
+
+    useEffect(()=>{
+       console.log("component rendering done....");
+    });
+
+    function test(value){
+        console.log(value);
+    }
 
     return (
     <div className="container">
@@ -84,6 +94,7 @@ export function Learning(){
         {/* <b>{getMessage()}</b> */}
         <button className="btn btn-info" onClick={getMessage}>MESSAGE</button>
        <b>{message}</b>
+       <button className="btn btn-warning" onClick={()=>test(45)}>MESSAGE</button>
      </div>
     );
 }
