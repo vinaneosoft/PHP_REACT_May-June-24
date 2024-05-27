@@ -1,6 +1,6 @@
 // u can declare javascript variables here : var, let, const
 import  dish  from "../Resources/kadhaipaneer.jpg";
-
+import  './Learning.css';
 
 /* relative path to public folder not allowed  : either u keeps resources in src or
 extract publc path from  "process.env.PUBLIC_URL" */
@@ -32,6 +32,17 @@ export function Learning(){
         height:300,
         width:400  
     }
+
+    // react style
+    const styleObj={
+        height:"500px",
+        width:"600px",
+        border:"5px dashed blue",
+        backgroundColor:"red"
+    }
+
+    const styleArray=['rounded-circle', 'border','border-5', "border-danger"]
+    const classes=styleArray.join(" ");
     return (
     <div className="container">
         <h4>{subHeading}</h4> {/*Data binding*/}
@@ -48,6 +59,9 @@ export function Learning(){
             <figcaption>{imageObj3.message}</figcaption>
             <img src={imageObj4.imgPath} alt={imageObj4.message} height={imageObj4.height} width={imageObj4.width}></img>
             <figcaption>{imageObj4.message}</figcaption>
+            <img style={styleObj} src={imageObj4.imgPath}></img>
+            <hr></hr>
+            <img className={classes} src={imageObj4.imgPath}></img>
         </figure>
      </div>
     );

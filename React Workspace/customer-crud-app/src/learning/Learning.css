@@ -1,0 +1,9 @@
+.dimension{
+    height: 100px;
+    width: 100px;
+    border: 4px double red;
+}
+
+.imgRounded{
+    border-radius: 50%;
+}
