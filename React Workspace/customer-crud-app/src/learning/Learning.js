@@ -1,5 +1,9 @@
 // u can declare javascript variables here : var, let, const
 import  dish  from "../Resources/kadhaipaneer.jpg";
+
+
+/* relative path to public folder not allowed  : either u keeps resources in src or
+extract publc path from  "process.env.PUBLIC_URL" */
 export function Learning(){
 
     // u can declare javascript variables here : var, let , const
@@ -11,6 +15,12 @@ export function Learning(){
         width:400  
     }
     const imageObj2={
+        imgPath:process.env.PUBLIC_URL+"/kadhaipaneer.jpg",
+        message:"Paneer Kadhai",
+        height:300,
+        width:400  
+    }
+    const imageObj3={
         imgPath:dish,
         message:"Paneer Kadhai",
         height:300,
@@ -26,6 +36,8 @@ export function Learning(){
             <figcaption>{imageObj.message}</figcaption>
             <img src={imageObj2.imgPath} alt={imageObj2.message} height={imageObj2.height} width={imageObj2.width}></img>
             <figcaption>{imageObj2.message}</figcaption>
+            <img src={imageObj3.imgPath} alt={imageObj3.message} height={imageObj3.height} width={imageObj3.width}></img>
+            <figcaption>{imageObj3.message}</figcaption>
         </figure>
      </div>
     );
