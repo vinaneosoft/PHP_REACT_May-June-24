@@ -41,6 +41,14 @@ export function Learning(){
         border:"5px dashed blue",
         backgroundColor:"red"
     }
+    const [paraStyle, setStyle]=useState({
+        backgroundColor:"pink",
+        color:"red"
+    });
+
+    const changeStyle=()=>{
+       setStyle({...paraStyle, backgroundColor:"green", fontSize:'20px'});
+    }
 
     const styleArray=['rounded-circle', 'border','border-5', "border-danger"]
     const classes=styleArray.join(" ");
@@ -96,6 +104,11 @@ export function Learning(){
        <b>{message}</b>
        <button className="btn btn-warning" onClick={()=>test(45)}>MESSAGE</button>
        { /* on button click we will apply style to any element*/}
+        <p style={paraStyle}>
+            Welcome to Neosoft
+        </p>
+        <button className="btn btn-info" onClick={changeStyle}>CHNAGE STYLE</button>
+
      </div>
     );
 }
