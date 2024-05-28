@@ -1,0 +1,3 @@
+Create Separate CustomerCard component in React.
+Pass customer object from Customers component to CustomerCard component using props. Display customer in details in card in CustomerCard component
+Add CustomerCard component as a child of Customers component
