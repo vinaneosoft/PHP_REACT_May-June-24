@@ -1,11 +1,11 @@
 import { MyCustomer } from "./MyCustomer";
 
 export function Customers(){
-
     const customers=[
         new MyCustomer(111,"Poonam",9898989898,"poo@gmail.com","poo","poo@123"),
         new MyCustomer(121,"Kalpesh",8898989898,"kalpesh@gmail.com","kalpesh","kalp@123"),
-        new MyCustomer(131,"Kiran",9898789898,"kiran@gmail.com","kiran","ki@123")
+        new MyCustomer(131,"Kiran",9898789898,"kiran@gmail.com","kiran","ki@123"),
+  /*       new MyCustomer() */
     ]
    const trElements=customers.map(customer=>
         <tr key={customer.customerId}>
@@ -20,9 +20,9 @@ export function Customers(){
     const cardElements=customers.map(customer=> 
     <div key={customer.customerId} className="card bg-info" style={{width :"18rem"}} >
         <div className="card-body">
-            <h5 className="card-title">{customer.customerId}</h5>
+            <h5 className="card-title"><span>#</span>{customer.customerId}</h5>
         </div>
-        <img src="..." className="card-img-top" alt="..."></img>
+        <img src={require("../Resources/"+customer.customerImage)} className="card-img-top" alt="..."></img>
         <div className="card-body">
             <h5 className="card-title">{customer.customerName}</h5>
         </div>
@@ -33,13 +33,19 @@ export function Customers(){
         </ul>
         <div className="card-body">
             <button className="btn btn-info">EDIT</button>
-            <button className="btn btn-danger">DELET</button>
+            <button className="btn btn-danger">DELETE</button>
         </div>
     </div>   
 ) 
     return(
         <>
-        <h4>CUSTOMER DETAILS</h4>
+       <h4>CUSTOMER DETAILS</h4>
+        <section className="d-flex">
+            {cardElements}
+        </section>
+
+        <hr></hr>
+        
         <table className="table table-hover">
             <thead>
                 <tr><th>ID</th><th>NAME</th><th>CONTACT</th><th>EMAIL ID</th><th>USERNAME</th><th>PASSWORD</th></tr>
@@ -48,9 +54,6 @@ export function Customers(){
                 {trElements}
             </tbody>
         </table>
-        <section className="d-flex">
-            {cardElements}
-        </section>
         </>
     );
 }

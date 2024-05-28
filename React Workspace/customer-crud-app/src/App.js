@@ -12,6 +12,7 @@ function App() {
     <React.Fragment>  
         <Header></Header>
         <Customers></Customers>
+        <JSXExpressions></JSXExpressions>
         <Footer></Footer>
     </React.Fragment>  
   );

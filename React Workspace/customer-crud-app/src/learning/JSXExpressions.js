@@ -14,6 +14,8 @@ let veg=false;
 
 export function JSXExpressions(){
    // hook 
+   const vegHeading="VEG MAIN COURSE in Vina's Kitchen";
+   const nonvegHeading="NONVEG MAIN COURSE in Vina's Kitchen"
     return (
         <>
         <b>{age}</b>
@@ -22,7 +24,7 @@ export function JSXExpressions(){
         <p>{age>=18 && "Welcome for voting"}</p>
         <hr></hr>
         <div>
-            {veg==true ? <VegMenus></VegMenus> : <><VegMenus></VegMenus><NonvegMenus></NonvegMenus></>}
+            {veg==true ? <VegMenus ></VegMenus> : <><VegMenus vheading={vegHeading}></VegMenus><NonvegMenus nvheading={nonvegHeading}></NonvegMenus></>}
         </div>
         </>
     );

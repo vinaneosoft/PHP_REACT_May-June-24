@@ -1,9 +1,9 @@
-export function NonvegMenus(){
+export function NonvegMenus(props){
     const nonvegMenus=["Surmai Fish Fry", "Chicken Curry","Mutton Fry", "Egg Masala", "Chicken Bhuna"]
     const liElements=nonvegMenus.map((ele,i)=><li key={i}>{ele}</li>);
     return(
         <>
-            <h4>NON VEG MAIN COURSE</h4>
+            <h4>{props.nvheading}</h4>
             <ol>
                 {liElements}
             </ol>
