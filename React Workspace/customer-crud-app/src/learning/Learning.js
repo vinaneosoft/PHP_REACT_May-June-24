@@ -46,8 +46,17 @@ export function Learning(){
         color:"red"
     });
 
+    let flag=false;
+
     const changeStyle=()=>{
-       setStyle({...paraStyle, backgroundColor:"green", fontSize:'20px'});
+        if(flag==false){
+         setStyle({...paraStyle, backgroundColor:"green", fontSize:'20px'});
+         flag=true;
+        }
+        else{
+            // set Style with original style variables
+            flag=false;
+        }
     }
 
     const styleArray=['rounded-circle', 'border','border-5', "border-danger"]
