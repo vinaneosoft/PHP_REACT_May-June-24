@@ -4,8 +4,8 @@ import { MyCustomer } from "../customers/MyCustomer";
 export function Register(){
     const [customer, setCustomer]=useState(new MyCustomer());
     function changeCustomer(ev){
-        console.log(ev.target.value);
-        console.log(ev.target.name);
+      //  console.log(ev.target.value);
+      //  console.log(ev.target.name);
         setCustomer({...customer, [ev.target.name]:ev.target.value})
     }
     useEffect(()=>{
@@ -29,15 +29,15 @@ export function Register(){
             </div>
             <div className="mb-3">
                 <label htmlFor="customerEmail" className="form-label">EMAIL</label>
-                <input id="customerEmail" type="email" className="form-control" value={customer.customerEmail} onChange={changeCustomer}></input>
+                <input id="customerEmail" name="customerEmail"  type="email" className="form-control" value={customer.customerEmail} onChange={changeCustomer}></input>
             </div>
             <div className="mb-3">
                 <label htmlFor="username" className="form-label">USERNAME</label>
-                <input id="username" type="text" className="form-control" value={customer.username} onChange={changeCustomer}></input>
+                <input id="username" name="username" type="text" className="form-control" value={customer.username} onChange={changeCustomer}></input>
             </div>
             <div className="mb-3">
                 <label htmlFor="password" className="form-label">PASSWORD</label>
-                <input id="password" type="password" className="form-control" value={customer.password} onChange={changeCustomer}></input>
+                <input id="password" name="password" type="password" className="form-control" value={customer.password} onChange={changeCustomer}></input>
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>
