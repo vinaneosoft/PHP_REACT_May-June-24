@@ -1,5 +1,5 @@
 
-import React from "react"; 
+import React, { useState } from "react"; 
 import './App.css';
 import { Header } from "./myheader/Header";
 import { Footer } from "./Footer/Footer";
@@ -11,12 +11,13 @@ import { Login } from "./login/Login";
 import { Hooks } from "./learning/Hooks";
 
 function App() {
+  
   return (
     <React.Fragment>  
         <Header></Header>
        {/*  <Hooks></Hooks> */}
        {/*  <Login></Login> */}
-        <Register></Register>
+       <Register></Register>
         {/* <Customers></Customers>
         <JSXExpressions></JSXExpressions> */}
         <Footer></Footer>

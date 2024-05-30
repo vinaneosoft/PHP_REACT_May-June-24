@@ -3,18 +3,25 @@ import { MyCustomer } from "../customers/MyCustomer";
 
 export function Register(){
     const [customer, setCustomer]=useState(new MyCustomer());
+   // const test=useState();
     function changeCustomer(ev){
       //  console.log(ev.target.value);
       //  console.log(ev.target.name);
         setCustomer({...customer, [ev.target.name]:ev.target.value})
     }
     useEffect(()=>{
+        console.log("component rendered");
         console.log(customer);
-    });
+        console.log("-------------");
+        return ()=>{
+            console.log("Clean up function");
+        }
+       
+    },[customer]);
     return (
         <>
         <h4>Customer Registration Form</h4>
-        <b>{customer.customerId}</b>
+        <b>{customer.customerName}</b>
         <form>
             <div className="mb-3">
                 <label htmlFor="customerId" className="form-label">ID</label>
