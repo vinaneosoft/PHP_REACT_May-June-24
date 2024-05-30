@@ -18,7 +18,7 @@ export function Customers(){
             <td>{customer.password}</td>
         </tr>);
 
-    const cardElements=customers.map(customer=><Card customer={customer}></Card> ) 
+    const cardElements=customers.map(customer=><Card key={customer.customerId} customer={customer}></Card> ) 
     return(
         <>
        <h4>CUSTOMER DETAILS</h4>
