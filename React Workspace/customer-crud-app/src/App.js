@@ -8,7 +8,6 @@ import { JSXExpressions } from "./learning/JSXExpressions";
 import { Customers } from "./customers/Customers";
 import { Register } from "./register/Register";
 import { Login } from "./login/Login";
-import { Hooks } from "./learning/Hooks";
 
 function App() {
   
