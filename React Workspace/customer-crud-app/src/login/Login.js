@@ -11,6 +11,7 @@ export function Login(){
     }
     function getPara(){
         console.log(paranode.current);
+        console.log(inputnode.current);
         console.log(paranode.current.textContent);
     }   
     useEffect(()=>{
@@ -19,6 +20,7 @@ export function Login(){
     return (
         <>
         <h4>LOGIN FORM</h4>
+       
         <form onSubmit={collectData}>
             <div className="mb-3">
                 <label htmlFor="uname" className="form-label">USERNAME</label>
