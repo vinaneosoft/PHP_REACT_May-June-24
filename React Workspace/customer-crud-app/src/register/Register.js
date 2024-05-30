@@ -14,6 +14,7 @@ export function Register(){
     return (
         <>
         <h4>Customer Registration Form</h4>
+        <b>{customer.customerId}</b>
         <form>
             <div className="mb-3">
                 <label htmlFor="customerId" className="form-label">ID</label>

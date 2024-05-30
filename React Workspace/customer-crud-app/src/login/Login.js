@@ -1,13 +1,17 @@
 import { useEffect, useRef } from "react";
 
 export function Login(){
+    let uname="ABC";
     const inputnode=useRef();
     const paranode=useRef();
     function collectData(ev){
         ev.preventDefault();
-        console.log(inputnode.current);
-        console.log(inputnode.current.value);
-        console.log(inputnode.current.type);
+       // console.log(inputnode.current);
+      //  console.log(inputnode.current.value);
+      //  console.log(inputnode.current.type);
+        console.log(uname);
+        uname=inputnode.current.value;
+        console.log(uname); // use this internally
     }
     function getPara(){
         console.log(paranode.current);
@@ -20,7 +24,7 @@ export function Login(){
     return (
         <>
         <h4>LOGIN FORM</h4>
-       
+        <b>{uname}</b>
         <form onSubmit={collectData}>
             <div className="mb-3">
                 <label htmlFor="uname" className="form-label">USERNAME</label>

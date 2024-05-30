@@ -8,14 +8,15 @@ import { JSXExpressions } from "./learning/JSXExpressions";
 import { Customers } from "./customers/Customers";
 import { Register } from "./register/Register";
 import { Login } from "./login/Login";
+import { Hooks } from "./learning/Hooks";
 
 function App() {
   return (
     <React.Fragment>  
         <Header></Header>
-        <Login></Login>
-        <hr></hr>
-        <Register></Register>
+        <Hooks></Hooks>
+      {/*   <Login></Login>
+        <Register></Register> */}
         {/* <Customers></Customers>
         <JSXExpressions></JSXExpressions> */}
         <Footer></Footer>
