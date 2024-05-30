@@ -14,9 +14,9 @@ function App() {
   return (
     <React.Fragment>  
         <Header></Header>
-        <Hooks></Hooks>
-      {/*   <Login></Login>
-        <Register></Register> */}
+       {/*  <Hooks></Hooks> */}
+       {/*  <Login></Login> */}
+        <Register></Register>
         {/* <Customers></Customers>
         <JSXExpressions></JSXExpressions> */}
         <Footer></Footer>

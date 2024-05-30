@@ -1,6 +1,7 @@
 import { useRef } from "react";
 
 export function Hooks(){
+    /*The useRef Hook allows you to persist values between renders.*/
     let counter2=0;
     let counter=useRef(0);
     //console.log(counter);
@@ -16,8 +17,6 @@ export function Hooks(){
         <h4>USE REF HOOK</h4>
         <i>{counter2}</i><br></br>
         <b>{counter.current}</b>
-        <i></i>
-        <b></b>
         <button onClick={increment}>INCREMENT</button>
         </>
     );
