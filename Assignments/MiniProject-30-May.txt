@@ -1,0 +1,2 @@
+Create Inputs Component for your Mini project entity. collect data in your entity object. 
+Create admin login form. Collect data in username and password
