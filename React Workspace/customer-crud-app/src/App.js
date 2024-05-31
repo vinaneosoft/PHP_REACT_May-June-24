@@ -13,7 +13,6 @@ import { Login } from "./login/Login";
 export const MyContext=React.createContext();
 
 
-
 function App() {
  
   const [styleObj, setStyle]=useState({
@@ -28,12 +27,7 @@ function App() {
     <React.Fragment>  
       <MyContext.Provider value={styleObj}>
           <Header></Header>
-          <h3 style={styleObj}>Vina's Kitchen</h3>
-          {/*  <Hooks></Hooks> */}
-          {/*  <Login></Login> */}
-          {/*  <Register></Register> */}
-          {/* <Customers></Customers>*/}
-          <JSXExpressions></JSXExpressions> 
+
           <Footer></Footer>
       </MyContext.Provider>
     </React.Fragment>  

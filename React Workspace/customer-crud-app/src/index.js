@@ -5,11 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
-
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+// to define routes for every component
+const routerArray=[
+  {
+    path:"/",
+    element:<App></App>
+  }
+];
+// pass array to get router object
+const router=createBrowserRouter(routerArray);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>
 );
 
