@@ -15,11 +15,16 @@ export const MyContext=React.createContext();
 
 
 function App() {
-  let bgColor="yellow";
+ 
+  const styleObj={
+    border:'4px double green',
+    backgroundColor:"orange"
+  }
   return (
     <React.Fragment>  
-      <MyContext.Provider value={bgColor}>
+      <MyContext.Provider value={styleObj}>
           <Header></Header>
+          <h3 style={styleObj}>Vina's Kitchen</h3>
           {/*  <Hooks></Hooks> */}
           {/*  <Login></Login> */}
           {/*  <Register></Register> */}
