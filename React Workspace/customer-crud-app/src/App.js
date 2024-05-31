@@ -8,6 +8,7 @@ import { JSXExpressions } from "./learning/JSXExpressions";
 import { Customers } from "./customers/Customers";
 import { Register } from "./register/Register";
 import { Login } from "./login/Login";
+import { Outlet } from "react-router-dom";
 
 
 export const MyContext=React.createContext();
@@ -27,7 +28,8 @@ function App() {
     <React.Fragment>  
       <MyContext.Provider value={styleObj}>
           <Header></Header>
-
+            <h5>DYNAMIC SECTION WHERE CHILDREN GETS LOADED</h5>
+            <Outlet></Outlet> 
           <Footer></Footer>
       </MyContext.Provider>
     </React.Fragment>  
