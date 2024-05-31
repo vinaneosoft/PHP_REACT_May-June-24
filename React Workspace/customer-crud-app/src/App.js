@@ -1,5 +1,5 @@
 
-import React from "react"; 
+import React, { useState } from "react"; 
 import './App.css';
 import { Header } from "./myheader/Header";
 import { Footer } from "./Footer/Footer";
@@ -16,10 +16,14 @@ export const MyContext=React.createContext();
 
 function App() {
  
-  const styleObj={
+  const [styleObj, setStyle]=useState({
     border:'4px double green',
     backgroundColor:"orange"
-  }
+  })
+
+   setTimeout(()=>{
+      setStyle({...styleObj, backgroundColor:'purple'});
+   },10000);
   return (
     <React.Fragment>  
       <MyContext.Provider value={styleObj}>
