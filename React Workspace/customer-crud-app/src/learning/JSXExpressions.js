@@ -16,15 +16,21 @@ export function JSXExpressions(){
    // hook 
    const vegHeading="VEG MAIN COURSE in Vina's Kitchen";
    const nonvegHeading="NONVEG MAIN COURSE in Vina's Kitchen"
+   
+    function getMessage(message){
+     console.log(message);
+    }
+
     return (
         <>
+       
         <b>{age}</b>
         <p>{message}</p>
         <p>{age>=18?"Welcome for voting....":"Sorry!! you are not allowed for voting"}</p>
         <p>{age>=18 && "Welcome for voting"}</p>
         <hr></hr>
         <div>
-            {veg==true ? <VegMenus ></VegMenus> : <><VegMenus vheading={vegHeading}></VegMenus><NonvegMenus nvheading={nonvegHeading}></NonvegMenus></>}
+            {veg==true ? <VegMenus ></VegMenus> : <><VegMenus vheading={vegHeading} getMessage={getMessage}></VegMenus><NonvegMenus nvheading={nonvegHeading}></NonvegMenus></>}
         </div>
         </>
     );

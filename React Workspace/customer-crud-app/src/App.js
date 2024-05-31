@@ -23,7 +23,7 @@ function App() {
 
    setTimeout(()=>{
       setStyle({...styleObj, backgroundColor:'purple'});
-   },10000);
+   },3000);
   return (
     <React.Fragment>  
       <MyContext.Provider value={styleObj}>
