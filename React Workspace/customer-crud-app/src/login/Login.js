@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function Login(){
+    const navigate=useNavigate();
     let uname;
     let password;
     const userNode=useRef();
@@ -16,9 +18,8 @@ export function Login(){
     }
     function loginCheck(){
         if(uname=="admin" && password=="admin123")
-            {
-
-            }
+            navigate("/vinakitchen");
+            
         else
             setMessage("Incorrect admin username or password...");
     }

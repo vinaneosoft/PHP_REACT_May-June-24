@@ -33,12 +33,18 @@ const routerArray=[
         element:<Customers></Customers>
       },
       {
-        path:"register",
+        path:"register", // new registration
         element:<Register></Register>
       },
       {
         path:"login",
         element:<Login></Login>
+      },
+      {
+        //1. register our route
+        /* complex values can not be passed via route */
+        path:"update/:custid", // updating details,  register any parameter on route to hold value
+        element:<Register></Register>
       }
     ]
   }

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { MyCustomer } from "../customers/MyCustomer";
+import { useParams } from "react-router-dom";
 
 export function Register(){
     const [customer, setCustomer]=useState(new MyCustomer());
@@ -18,6 +19,11 @@ export function Register(){
         }
        
     },[customer]);
+
+    //3. extracting values from route
+    const { custid } =useParams();// do object destructuring in this line
+    console.log("id "+custid);
+    // further logic will be completed in react http
     return (
         <>
         <h4>Customer Registration Form</h4>

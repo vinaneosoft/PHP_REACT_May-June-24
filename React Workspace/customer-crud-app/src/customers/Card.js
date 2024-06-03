@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export function Card({customer}){
     return (
         <div className="card bg-info" style={{width :"18rem"}} >
@@ -14,7 +16,8 @@ export function Card({customer}){
             <li className="list-group-item"><b><small>Username: </small></b>{customer.username}</li>
         </ul>
         <div className="card-body">
-            <button className="btn btn-info">EDIT</button>
+            {/* 2. pass the data from route */}
+            <Link className="btn btn-warning" to={`/vinakitchen/update/${customer.customerId}`}>EDIT</Link>
             <button className="btn btn-danger">DELETE</button>
         </div>
     </div>   
