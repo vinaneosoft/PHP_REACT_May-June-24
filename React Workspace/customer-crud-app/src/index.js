@@ -14,10 +14,14 @@ import { Home } from './home/Home';
 const routerArray=[
   {
     path:"/",
+    element:<Login></Login>
+  },
+  {
+    path:"/vinakitchen",
     element:<App></App>,
     children:[
       {
-        path:'/',
+        path:'/vinakitchen',
         loader: () => redirect('home'),
       },
       {
