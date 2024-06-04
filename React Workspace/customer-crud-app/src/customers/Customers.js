@@ -11,6 +11,7 @@ export function Customers(){
     let  [customers, setCustomers]=useState([]);
     async function getCustomers(){
         let data= await getAllCustomers();
+        console.log(data);
         setCustomers(data);
     }
 

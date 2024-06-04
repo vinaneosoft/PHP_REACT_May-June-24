@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MyCustomer } from "../customers/MyCustomer";
 import { useParams } from "react-router-dom";
+import { addCustomer } from "../httpmodel/http";
 
 export function Register(){
     const [customer, setCustomer]=useState(new MyCustomer());
@@ -11,11 +12,9 @@ export function Register(){
         setCustomer({...customer, [ev.target.name]:ev.target.value})
     }
     useEffect(()=>{
-        console.log("component rendered");
-        console.log(customer);
-        console.log("-------------");
+        console.log("re rendered...");
         return ()=>{
-            console.log("Clean up function");
+            console.log("Clean up....");
         }
        
     },[customer]);
@@ -24,11 +23,17 @@ export function Register(){
     const { custid } =useParams();// do object destructuring in this line
     console.log("id "+custid);
     // further logic will be completed in react http
+
+    function collectData(e){
+        e.preventDefault();
+        customer.customerImage="sampleprofilepic.jpg";
+        addCustomer(customer);
+    }
     return (
         <>
         <h4>Customer Registration Form</h4>
         <b>{customer.customerName}</b>
-        <form>
+        <form onSubmit={collectData}>
             <div className="mb-3">
                 <label htmlFor="customerId" className="form-label">ID</label>
                 <input id="customerId" name="customerId" type="number" className="form-control" value={customer.customerId} onChange={changeCustomer}></input>

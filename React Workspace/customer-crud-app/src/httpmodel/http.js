@@ -14,6 +14,7 @@ export async function getCustomerById(){
 
 }
 
-export async function addCustomer(){
-
+export async function addCustomer(customer){
+    const response =await axios.post("http://localhost:3500/customerrecords",customer);
+    console.log(response);
 }
