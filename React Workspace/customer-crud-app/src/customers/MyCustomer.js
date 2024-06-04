@@ -1,7 +1,7 @@
 export class MyCustomer{
 
-  constructor(customerId=0, customerName="", customerContact=0,customerEmail="", username="", password="", customerImage="sampleprofilepic.jpg"){
-    this.customerId=customerId;
+  constructor(customerName="", customerContact=0,customerEmail="", username="", password="", customerImage="sampleprofilepic.jpg"){
+    this.id=Math.round((Math.random()*1000))+"";
     this.customerName=customerName;
     this.customerContact=customerContact;
     this.customerEmail=customerEmail;

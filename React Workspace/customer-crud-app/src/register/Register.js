@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { MyCustomer } from "../customers/MyCustomer";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { addCustomer } from "../httpmodel/http";
 
 export function Register(){
+    const navigate=useNavigate();
     const [customer, setCustomer]=useState(new MyCustomer());
    // const test=useState();
     function changeCustomer(ev){
@@ -24,20 +25,27 @@ export function Register(){
     console.log("id "+custid);
     // further logic will be completed in react http
 
-    function collectData(e){
+    async function collectData(e){
         e.preventDefault();
         customer.customerImage="sampleprofilepic.jpg";
-        addCustomer(customer);
+        console.log(customer);
+        const response=await addCustomer(customer);
+        if(response.statusText=="Created"){
+                alert("Customer registered successfully.....");
+                navigate("/vinakitchen/customers");
+        }
+        else
+            console.log("Something went wrong.....");
     }
     return (
         <>
         <h4>Customer Registration Form</h4>
         <b>{customer.customerName}</b>
         <form onSubmit={collectData}>
-            <div className="mb-3">
+           {/*  <div className="mb-3">
                 <label htmlFor="customerId" className="form-label">ID</label>
-                <input id="customerId" name="customerId" type="number" className="form-control" value={customer.customerId} onChange={changeCustomer}></input>
-            </div>
+                <input id="customerId" name="id" type="number" className="form-control" value={customer.id} onChange={changeCustomer}></input>
+            </div> */}
             <div className="mb-3">
                 <label htmlFor="customerName" className="form-label">NAME</label>
                 <input id="customerName" name="customerName" type="text" className="form-control" value={customer.customerName} onChange={changeCustomer} ></input>

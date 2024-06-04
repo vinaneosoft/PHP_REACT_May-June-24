@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import { MyCustomer } from "./MyCustomer";
-import { getAllCustomers } from "../httpmodel/http";
+import { deleteCustomerById, getAllCustomers } from "../httpmodel/http";
 
 export function Customers(){
     useEffect(()=>{
@@ -11,13 +11,20 @@ export function Customers(){
     let  [customers, setCustomers]=useState([]);
     async function getCustomers(){
         let data= await getAllCustomers();
-        console.log(data);
+      //  console.log(data);
         setCustomers(data);
+    }
+    async function deleteCustomer(id){
+        const response=await deleteCustomerById(id);
+        if(response.statusText=="OK"){
+            alert("Customer deleted successfully...");
+            getCustomers();
+        }
     }
 
    const trElements=customers.map(customer=>
-        <tr key={customer.customerId}>
-            <td>{customer.customerId}</td>
+        <tr key={customer.id}>
+            <td>{customer.id}</td>
             <td>{customer.customerName}</td>
             <td>{customer.customerContact}</td>
             <td>{customer.customerEmail}</td>
@@ -25,11 +32,11 @@ export function Customers(){
             <td>{customer.password}</td>
         </tr>);
 
-    const cardElements=customers.map(customer=><Card key={customer.customerId} customer={customer}></Card> ) 
+    const cardElements=customers.map(customer=><Card key={customer.id} customer={customer} deleteCustomer={deleteCustomer}></Card> ) 
     return(
         <>
        <h4>CUSTOMER DETAILS</h4>
-        <section className="d-flex">
+        <section className="d-flex flex-wrap">
             {cardElements}
         </section>
 

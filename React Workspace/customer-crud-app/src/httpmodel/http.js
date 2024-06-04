@@ -16,5 +16,10 @@ export async function getCustomerById(){
 
 export async function addCustomer(customer){
     const response =await axios.post("http://localhost:3500/customerrecords",customer);
-    console.log(response);
+    return response;
+}
+
+export async function deleteCustomerById(id){
+    const response=axios.delete("http://localhost:3500/customerrecords/"+id);
+    return response;
 }
