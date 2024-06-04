@@ -15,13 +15,17 @@ export function Customers(){
         setCustomers(data);
     }
     async function deleteCustomer(id){
-        const response=await deleteCustomerById(id);
-        if(response.statusText=="OK"){
-            alert("Customer deleted successfully...");
-            getCustomers();
+        const reply=window.confirm("Do you really want to delete?");
+        if(reply){
+            const response=await deleteCustomerById(id);
+            if(response.statusText=="OK")  {
+                alert("customer deleted successfully....");
+                getCustomers();
+            }
+            else
+                console.log("Something went wrong while deleting...");
         }
     }
-
    const trElements=customers.map(customer=>
         <tr key={customer.id}>
             <td>{customer.id}</td>

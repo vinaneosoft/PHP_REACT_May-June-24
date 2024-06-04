@@ -35,7 +35,7 @@ export function Register(){
                 navigate("/vinakitchen/customers");
         }
         else
-            console.log("Something went wrong.....");
+            console.log("Something went wrong while adding.....");
     }
     return (
         <>
