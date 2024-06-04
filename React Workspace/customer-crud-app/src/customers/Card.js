@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-
+import custImage from '../Resources/sampleprofilepic.jpg';
 export function Card({customer}){
     return (
         <div className="card bg-info" style={{width :"18rem"}} >
         <div className="card-body">
             <h5 className="card-title"><span>#</span>{customer.customerId}</h5>
         </div>
-        <img src={require("../Resources/"+customer.customerImage)} className="card-img-top" alt="..."></img>
+       <img src={custImage} className="card-img-top" alt="..."></img>
         <div className="card-body">
             <h5 className="card-title">{customer.customerName}</h5>
         </div>

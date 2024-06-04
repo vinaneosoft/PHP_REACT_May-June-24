@@ -1,13 +1,19 @@
+import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import { MyCustomer } from "./MyCustomer";
+import { getAllCustomers } from "../httpmodel/http";
 
 export function Customers(){
-    const customers=[
-        new MyCustomer(111,"Poonam",9898989898,"poo@gmail.com","poo","poo@123"),
-        new MyCustomer(121,"Kalpesh",8898989898,"kalpesh@gmail.com","kalpesh","kalp@123"),
-        new MyCustomer(131,"Kiran",9898789898,"kiran@gmail.com","kiran","ki@123"),
-  /*       new MyCustomer() */
-    ]
+    useEffect(()=>{
+        getCustomers();
+        console.log("re rendered...");
+    }, []);
+    let  [customers, setCustomers]=useState([]);
+    async function getCustomers(){
+        let data= await getAllCustomers();
+        setCustomers(data);
+    }
+
    const trElements=customers.map(customer=>
         <tr key={customer.customerId}>
             <td>{customer.customerId}</td>
