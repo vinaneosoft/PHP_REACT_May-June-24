@@ -53,7 +53,7 @@ export function Register(){
                 <label htmlFor="password" className="form-label">PASSWORD</label>
                 <input id="password" name="password" type="password" className="form-control" value={customer.password} onChange={changeCustomer}></input>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary">REGISTER</button>
         </form>
         </>
     );
