@@ -27,8 +27,13 @@ export function Customers(){
                 console.log("Something went wrong while deleting...");
         }
     }
-    function searchCustomer(id){
-        console.log(id);
+    function searchCustomer(property, value){
+      //  console.log(property);
+       // console.log(value);
+        // no backend logic
+        // filter logic on array
+        const filters=customers.filter(customer=>customer[property]==value.trim())
+        setCustomers(filters);
     }
    const trElements=customers.map(customer=>
         <tr key={customer.id}>

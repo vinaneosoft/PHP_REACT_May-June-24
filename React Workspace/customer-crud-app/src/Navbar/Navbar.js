@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { SearchBar } from "../searchbar/SearchBar";
+
 
 
 export function Navbar(){
@@ -19,7 +19,7 @@ export function Navbar(){
         <Link className="nav-link" to="customers">Show Customers</Link>
         </li>
       </ul>
-        <SearchBar></SearchBar>
+        
       <ul className="navbar-nav">
         <li className="nav-item">
         <Link className="nav-link" to="register">Register</Link>
