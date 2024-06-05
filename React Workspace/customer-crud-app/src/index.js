@@ -10,6 +10,10 @@ import { Login } from './login/Login';
 import { Customers } from './customers/Customers';
 import { Register } from './register/Register';
 import { Home } from './home/Home';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 // to define routes for every component
 const routerArray=[
   {

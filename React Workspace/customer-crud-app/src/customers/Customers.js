@@ -33,7 +33,7 @@ export function Customers(){
         // no backend logic
         // filter logic on array
         if(value!=""){
-            const filters=customers.filter(customer=>customer[property]==value.trim())
+            const filters=customers.filter(customer=>customer[property].includes(value.trim()))
             if(filters.length!=0)
                 setCustomers(filters);
             else

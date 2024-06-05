@@ -1,2 +1,4 @@
 require function not allowing to put public url
-react keys : duplicate : how react will come to know
+
+customizing react MUI
+loader of react routing
