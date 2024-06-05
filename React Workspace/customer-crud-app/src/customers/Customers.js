@@ -28,12 +28,17 @@ export function Customers(){
         }
     }
     function searchCustomer(property, value){
-      //  console.log(property);
-       // console.log(value);
+        console.log(property);
+       console.log(value);
         // no backend logic
         // filter logic on array
-        const filters=customers.filter(customer=>customer[property]==value.trim())
-        setCustomers(filters);
+        if(value!=""){
+            const filters=customers.filter(customer=>customer[property]==value.trim())
+            if(filters.length!=0)
+                setCustomers(filters);
+            else
+                alert("CUSTOMER NOT FOUND");
+        }
     }
    const trElements=customers.map(customer=>
         <tr key={customer.id}>
