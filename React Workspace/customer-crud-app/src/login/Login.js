@@ -33,7 +33,7 @@ export function Login(){
     });
 
     return (
-        <>
+        <section className="container w-50 bg-secondary">
         <h4>LOGIN FORM</h4>
         <b>{uname}</b>
        <b style={{color:"red"}}><small>{errorMessage}</small></b>
@@ -52,6 +52,6 @@ export function Login(){
             Welcome to neosoft
         </p>
         <button onClick={getPara}>CLICK</button>
-        </>
+       </section>
     );
 }

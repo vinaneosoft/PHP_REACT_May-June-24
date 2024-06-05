@@ -1,25 +1,32 @@
 import axios from "axios";
 
+const url="http://localhost:3500/customerrecords"
 
 export async function getAllCustomers(){
     // get is used to send get request to server 
-    const response=await axios.get("http://localhost:3500/customerrecords");
+    const response=await axios.get(url);
     if(response.statusText=="OK")
         return response.data;
     else
         console.log("something went wrong.....");
 }   
 
-export async function getCustomerById(){
-
+export async function getCustomerById(id){
+    const response=await axios.get(url+"/"+id);
+    return response;
+}
+export async function deleteCustomerById(id){
+    const response=axios.delete(url+"/"+id);
+    return response;
+}
+export async function updateCustomerById(customer){
+    const response=await axios.put(url+"/"+customer.id,customer)
+    return response; 
 }
 
 export async function addCustomer(customer){
-    const response =await axios.post("http://localhost:3500/customerrecords",customer);
+    const response =await axios.post(url,customer);
     return response;
 }
 
-export async function deleteCustomerById(id){
-    const response=axios.delete("http://localhost:3500/customerrecords/"+id);
-    return response;
-}
+

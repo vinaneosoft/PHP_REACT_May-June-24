@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card } from "./Card";
 import { MyCustomer } from "./MyCustomer";
 import { deleteCustomerById, getAllCustomers } from "../httpmodel/http";
+import { SearchBar } from "../searchbar/SearchBar";
 
 export function Customers(){
     useEffect(()=>{
@@ -26,6 +27,9 @@ export function Customers(){
                 console.log("Something went wrong while deleting...");
         }
     }
+    function searchCustomer(id){
+        console.log(id);
+    }
    const trElements=customers.map(customer=>
         <tr key={customer.id}>
             <td>{customer.id}</td>
@@ -40,6 +44,7 @@ export function Customers(){
     return(
         <>
        <h4>CUSTOMER DETAILS</h4>
+       <SearchBar searchCustomer={searchCustomer}></SearchBar>
         <section className="d-flex flex-wrap">
             {cardElements}
         </section>

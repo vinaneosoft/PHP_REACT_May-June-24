@@ -44,7 +44,7 @@ const routerArray=[
         //1. register our route
         /* complex values can not be passed via route */
         path:"update/:custid", // updating details,  register any parameter on route to hold value
-        element:<Register></Register>
+        element:<Register></Register>,
       }
     ]
   }
