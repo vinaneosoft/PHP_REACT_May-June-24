@@ -11,9 +11,11 @@ export function Customers(){
     }, []);
     let  [customers, setCustomers]=useState([]);
     async function getCustomers(){
-        let data= await getAllCustomers();
-      //  console.log(data);
-        setCustomers(data);
+        let response= await getAllCustomers(); // we can take data from store
+        if(response.statusText=="OK")
+            setCustomers( response.data);
+        else
+            console.log("something went wrong while getting data.....");
     }
     async function deleteCustomer(id){
         const reply=window.confirm("Do you really want to delete?");

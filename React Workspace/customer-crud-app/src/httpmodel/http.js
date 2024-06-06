@@ -5,10 +5,7 @@ const url="http://localhost:3500/customerrecords"
 export async function getAllCustomers(){
     // get is used to send get request to server 
     const response=await axios.get(url);
-    if(response.statusText=="OK")
-        return response.data;
-    else
-        console.log("something went wrong.....");
+    return response;
 }   
 
 export async function getCustomerById(id){

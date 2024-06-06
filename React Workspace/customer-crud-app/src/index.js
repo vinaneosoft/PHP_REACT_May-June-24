@@ -14,6 +14,8 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { Provider } from 'react-redux';
+import store from "./Redux/Store/store"
 // to define routes for every component
 const routerArray=[
   {
@@ -61,7 +63,9 @@ const router=createBrowserRouter(routerArray);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <Provider store={store}>
     <RouterProvider router={router}></RouterProvider>
+    </Provider>
   </React.StrictMode>
 );
 
