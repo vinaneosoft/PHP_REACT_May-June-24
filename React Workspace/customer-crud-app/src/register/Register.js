@@ -2,8 +2,14 @@ import { useEffect, useState } from "react";
 import { MyCustomer } from "../customers/MyCustomer";
 import { useNavigate, useParams } from "react-router-dom";
 import { addCustomer, getCustomerById, updateCustomerById } from "../httpmodel/http";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchCustomers } from "../Redux/Reducers/CustomerSlice";
 
 export function Register(){
+    const customers=useSelector((state)=>state.customers.data); // hook
+    const dispatch=useDispatch();   // hook
+
+
     const navigate=useNavigate();
     const [customer, setCustomer]=useState(new MyCustomer());
     const [label, setLabel]=useState("REGISTER");
@@ -16,6 +22,7 @@ export function Register(){
     }
     useEffect(()=>{
        // console.log("re rendered...");
+        dispatch(fetchCustomers()); // dispatch action
         searchCustomer();
         return ()=>{
            // console.log("Clean up....");
@@ -51,18 +58,18 @@ export function Register(){
           const response=  await updateCustomerById(customer);
           if(response.statusText=="OK"){
             alert("Customer updated successfully.....");
-            navigate("/vinakitchen/customers");
+            navigate("/vinakitchen/customers"); // re route not fetching updated store data
     }
     else
         console.log("Something went wrong while updating.....");
     }
     async function  searchCustomer(){
-       // console.log("in search function");
+       console.log("Customers", customers); // customers from store
         if(custid!=undefined)
             {
-               const response=await getCustomerById(custid);
-                if(response.statusText=="OK") {
-                    setCustomer(response.data);
+                const cust=customers.find(customer=>customer.id==custid)
+                if(cust!=null) {
+                    setCustomer(cust);
                     setLabel("UPDATE");
                 }
                 else

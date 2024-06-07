@@ -6,27 +6,36 @@ import { SearchBar } from "../searchbar/SearchBar";
 import { useDispatch, useSelector } from "react-redux";
 import {fetchCustomers} from "../Redux/Reducers/CustomerSlice";
 export function Customers(){
-    const state=useSelector((state)=>state.customers); // if store data is updated it will fetch updated data atumatically
-    const [customers, setCustomers]=useState(state.data);
+    const data=useSelector((state)=>state.customers.data); // if store data is updated it will fetch updated data atumatically
+    const [customers, setCustomers]=useState(data);
     const dispatch=useDispatch();
     useEffect(()=>{  
-        dispatch(fetchCustomers()); // customers will be added in react store
+        loadCustomers();
     }, []);
-  
+    
+    function loadCustomers(){
+        dispatch(fetchCustomers());
+        //useSelector not giving updated data
+        setCustomers(data);
+    }
+    function getCustomers(){
+        setCustomers(data);
+    }
+
     async function deleteCustomer(id){
         const reply=window.confirm("Do you really want to delete?");
         if(reply){
             const response=await deleteCustomerById(id);
             if(response.statusText=="OK")  {
                 alert("customer deleted successfully....");
-                //getCustomers();
+                loadCustomers();
             }
             else
                 console.log("Something went wrong while deleting...");
         }
     }
     function searchCustomer(property, value){
-        if(value!=""){
+        if(value!="" && customers!=null){
             const filters=customers.filter(customer=>customer[property].includes(value.trim()))
             if(filters.length!=0)
                 setCustomers(filters)
@@ -51,8 +60,9 @@ export function Customers(){
     return(
         <>
        <h4>CUSTOMER DETAILS</h4>
-        <h5>{state.isLoading && "Customers are loading........"}</h5>
+    
        <SearchBar searchCustomer={searchCustomer}></SearchBar>
+       <button type="button" className="btn btn-warning" onClick={getCustomers}> RESET</button>
         <section className="d-flex flex-wrap">
             { cardElements}
         </section>
