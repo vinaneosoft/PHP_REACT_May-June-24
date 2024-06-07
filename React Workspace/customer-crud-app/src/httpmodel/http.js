@@ -7,7 +7,6 @@ export async function getAllCustomers(){
     const response=await axios.get(url);
     return response;
 }   
-
 export async function getCustomerById(id){
     const response=await axios.get(url+"/"+id);
     return response;

@@ -1,19 +1,32 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getAllCustomers } from '../../httpmodel/http'
+
+export const fetchCustomers=createAsyncThunk('fetchCustomers', async ()=>{
+    const response=await getAllCustomers();
+    return response.data;
+} )
 
 export const customerSlice = createSlice({
   name: 'customers',
   initialState: {
-    value: [],
+    isLoading:false,
+    data:null,
+    isError:false
   },
-  reducers: {
-    loaddata:(state)=>{
-        const response=getAllCustomers();
-        state=response.data; // we are considering mutable
-    }
-  },
+  extraReducers:(builder)=>{
+    builder.addCase(fetchCustomers.pending,(state, action)=>{
+        state.isLoading=true;
+    });
+    builder.addCase(fetchCustomers.fulfilled, (state, action)=>{
+        state.isLoading=false;
+        state.data=action.payload;
+    });
+    builder.addCase(fetchCustomers.rejected, (state, action)=>{
+        state.isError=true;
+        console.log("Error", action.payload);
+    });
+  }
 })
 
-// Action creators are generated for each case reducer function
-export const { loaddata } = customerSlice.actions
+
 export default customerSlice.reducer
