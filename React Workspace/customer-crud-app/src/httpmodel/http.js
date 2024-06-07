@@ -3,7 +3,7 @@ import axios from "axios";
 const url="http://localhost:3500/customerrecords"
 
 export async function getAllCustomers(){
-    // get is used to send get request to server 
+  //console.log("reuquest to backend");
     const response=await axios.get(url);
     return response;
 }   

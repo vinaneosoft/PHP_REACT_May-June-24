@@ -7,11 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import {fetchCustomers} from "../Redux/Reducers/CustomerSlice";
 export function Customers(){
     const state=useSelector((state)=>state.customers); // if store data is updated it will fetch updated data atumatically
-    const customers=state.data;
+    const [customers, setCustomers]=useState(state.data);
     const dispatch=useDispatch();
     useEffect(()=>{  
         dispatch(fetchCustomers()); // customers will be added in react store
-        console.log(customers);
     }, []);
   
     async function deleteCustomer(id){
@@ -27,16 +26,12 @@ export function Customers(){
         }
     }
     function searchCustomer(property, value){
-        console.log(property);
-       console.log(value);
-        // no backend logic
-        // filter logic on array
         if(value!=""){
             const filters=customers.filter(customer=>customer[property].includes(value.trim()))
-           /*  if(filters.length!=0)
-                setCustomers(filters);
+            if(filters.length!=0)
+                setCustomers(filters)
             else
-                alert("CUSTOMER NOT FOUND"); */
+                alert("CUSTOMER NOT FOUND");
         }
     }
    let trElements;
